@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact, addcontact } from '../../store';
+import { addContact } from '../../store';
 
 const AddContact = () => {
 	const dispatch = useDispatch();
@@ -12,7 +12,12 @@ const AddContact = () => {
 
 	const createContact = (e) => {
 		e.preventDefault();
-		dispatch(addcontact());
+		const new_contact = {
+			name: name,
+			phone: phone,
+			email: email,
+		};
+		dispatch(addContact(new_contact));
 	};
 
 	return (
