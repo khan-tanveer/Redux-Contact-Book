@@ -2,6 +2,7 @@
 
 import React from 'react';
 import '../../styles/index.scss';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
@@ -11,9 +12,9 @@ const Navbar = () => {
 					Contact Book
 				</a>
 				<div>
-					<a href='/' className='btn btn-light ml-auto'>
+					<Link to='/addcontact' className='btn btn-light ml-auto'>
 						Create Contact
-					</a>
+					</Link>
 				</div>
 			</div>
 		</nav>
