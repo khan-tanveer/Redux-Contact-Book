@@ -4,10 +4,10 @@ import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 //actions
-export const addContact = (contact) => {
+export const addContact = (payload) => {
 	return {
 		type: 'CREATE_CONTACT',
-		payload: 'contact',
+		payload: 'payload',
 	};
 };
 
