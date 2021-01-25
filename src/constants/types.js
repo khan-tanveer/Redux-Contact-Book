@@ -1,0 +1,4 @@
+/** @format */
+
+export const CREATE_CONTACT = 'CREATE_CONTACT';
+export const GET_CONTACT = 'GET_CONTACT';

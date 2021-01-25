@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AddContact from './components/contacts/AddContact';
+import EditContact from './components/contacts/EditContact';
 
 function App() {
 	return (
@@ -18,7 +19,12 @@ function App() {
 						<div className='py-4'>
 							<Switch>
 								<Route exact path='/' component={Contacts} />
-								<Route exact path='/addcontact' component={AddContact} />
+								<Route exact path='/contacts/add' component={AddContact} />
+								<Route
+									exact
+									path='/contacts/edit/:id'
+									component={EditContact}
+								/>
 							</Switch>
 						</div>
 					</div>
