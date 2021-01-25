@@ -2,9 +2,12 @@
 
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../store';
+import { addContact } from '../../actions/contactAction';
+import { useHistory } from 'react-router-dom';
+import shortid from 'shortid';
 
 const AddContact = () => {
+	let history = useHistory();
 	const dispatch = useDispatch();
 	const [name, setName] = useState('');
 	const [phone, setPhone] = useState('');
@@ -12,12 +15,15 @@ const AddContact = () => {
 
 	const createContact = (e) => {
 		e.preventDefault();
+		console.log(name, phone, email);
 		const new_contact = {
+			id: shortid.generate(),
 			name: name,
 			phone: phone,
 			email: email,
 		};
 		dispatch(addContact(new_contact));
+		history.push('/');
 	};
 
 	return (
@@ -30,7 +36,6 @@ const AddContact = () => {
 							type='text'
 							className='form-control'
 							placeholder='Enter Your Name'
-							value={name}
 							onChange={(e) => setName(e.target.value)}
 						/>
 					</div>
