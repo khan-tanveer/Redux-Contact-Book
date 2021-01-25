@@ -1,6 +1,10 @@
 /** @format */
 
-import { CREATE_CONTACT, GET_CONTACT } from '../constants/types';
+import {
+	CREATE_CONTACT,
+	GET_CONTACT,
+	UPDATE_CONTACT,
+} from '../constants/types';
 
 export const addContact = (contact) => {
 	return {
@@ -15,5 +19,13 @@ export const getContact = (id) => {
 	return {
 		type: GET_CONTACT,
 		payload: id,
+	};
+};
+
+//update a contact
+export const updateContact = (contact) => {
+	return {
+		type: UPDATE_CONTACT,
+		payload: contact,
 	};
 };
