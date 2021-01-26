@@ -3,14 +3,21 @@
 import React from 'react';
 import Avatar from 'react-avatar';
 import { Link } from 'react-router-dom';
+import { deleteContact } from '../../actions/contactAction';
+import { useDispatch } from 'react-redux';
 
-const Contact = ({ contact }) => {
+const Contact = ({ contact, selectAll }) => {
+	const dispatch = useDispatch();
 	const { name, phone, email, id } = contact;
 	return (
 		<tr>
 			<td>
 				<div className='custom-control custom-checkbox'>
-					<input type='checkbox' className='custom-control-input' />
+					<input
+						checked={selectAll}
+						type='checkbox'
+						className='custom-control-input'
+					/>
 					<label className='custom-control-label'></label>
 				</div>
 			</td>
@@ -24,9 +31,12 @@ const Contact = ({ contact }) => {
 				<Link to={`/contacts/edit/${id}`}>
 					<span className='material-icons mr-2'>edit</span>
 				</Link>
-				<a href='/'>
-					<span className='material-icons text-danger'> remove_circle</span>
-				</a>
+
+				<span
+					className='material-icons text-danger cursor-pointer'
+					onClick={() => dispatch(deleteContact(id))}>
+					remove_circle
+				</span>
 			</td>
 		</tr>
 	);
