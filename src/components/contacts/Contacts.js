@@ -2,7 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearAllContact, selectAllContact } from '../../actions/contactAction';
+import {
+	clearAllContact,
+	deleteAllContact,
+	selectAllContact,
+} from '../../actions/contactAction';
 import Contact from './Contact';
 
 const Contacts = () => {
@@ -24,7 +28,11 @@ const Contacts = () => {
 	return (
 		<div>
 			{selectedContacts.length > 0 ? (
-				<button className='btn btn-danger mb-2'>Delete All </button>
+				<button
+					className='btn btn-danger mb-2'
+					onClick={() => dispatch(deleteAllContact())}>
+					Delete All{' '}
+				</button>
 			) : null}
 			<table className='table shadow'>
 				<thead className='bg-danger'>

@@ -4,6 +4,7 @@ import {
 	CLEAR_CONTACT,
 	CREATE_CONTACT,
 	DELETE_CONTACT,
+	DELETE_SELECTED_CONTACT,
 	GET_CONTACT,
 	SELECT_CONTACT,
 	UPDATE_CONTACT,
@@ -278,6 +279,11 @@ export const contactReducer = (state = initialState, action) => {
 				contacts: state.contacts.filter(
 					(contact) => contact.id !== action.payload
 				),
+			};
+		case DELETE_SELECTED_CONTACT:
+			return {
+				...state,
+				contacts: [],
 			};
 		case SELECT_CONTACT:
 			return {
